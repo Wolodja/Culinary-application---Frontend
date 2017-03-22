@@ -6,3 +6,6 @@
 .cont button{
     margin-left:307px; 
 }
+.cont button:hover{
+    background-color: white;
+}
