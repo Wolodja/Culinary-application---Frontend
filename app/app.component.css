@@ -1,0 +1,47 @@
+  
+  .menu{
+	  position:absolute;
+	  left:400px;
+	  top:30px;
+      
+  }
+  .menu a{
+	  color: black;
+	  font-size:13pt;
+	  text-decoration: none;
+	  font-family:ubuntu bold;
+	  font-weight:bold;
+
+  }
+.images img{
+    position: relative;
+    left:50px;
+    top:-30px;
+    height: 6cm;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	color:black;
+    background-color:#ebebe0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+    margin-left: 10px;
+	margin-right: 10px; 
+}
+
+li a:hover {
+    color: #ce7644;
+}
