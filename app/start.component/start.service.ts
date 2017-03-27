@@ -12,14 +12,14 @@ export class StartService implements OnInit {
         
         danies: Danie[];
         ngOnInit(): void {
-            this.danies=data;
+            //this.danies=data;
         }
 
 
     constructor(private http: Http) { }
 
     getData() {
-        return this.http.get('https://httpbin.org/get?name=hannes')
+        return this.http.get('http://localhost:8080/get-danie')
             .map(res => res.json());
     }
 

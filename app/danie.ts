@@ -1,7 +1,7 @@
 export class Danie{
-    id: String;
-    nazwa : String;
-    opis:String;
-    typ: String;
-    przepis: String;
+    idDanie: String;
+    nazwaDanie : String;
+    idTyp:String;
+    opisDanie: String;
+    idPrzepis: String;
 }

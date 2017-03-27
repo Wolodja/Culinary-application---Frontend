@@ -102,6 +102,7 @@ var
 
   browserSyncConfigFactory = function (routes) {
     return {
+      port: 3000,
       online: false,
       ghostMode: false,
       server: {

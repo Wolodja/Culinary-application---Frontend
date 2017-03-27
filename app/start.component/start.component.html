@@ -1,14 +1,14 @@
 <div class="cont">
-<!--    <button (click)="onGet()">Get Data</button>
-    <p>Output: {{getDataa}}</p>
+<!--  <button (click)="onGet()">Get Data</button>
+  <p>Output: {{getDataa}}</p>
 -->
-<form>
-  <div class="form-group col-4">
-    <label for="exampleInputEmail1">Wyszukaj przepis! Wprowadź nazwę dania</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nazwa dania">
-  </div>
-  
-  <button type="submit" class="btn btn-default" routerLink="/danies">Wyszukaj</button>
-</form>
-</div>
+  <form>
+    <div class="form-group col-4">
+      <label for="exampleInputEmail1">Wyszukaj przepis! Wprowadź nazwę dania</label>
+      <input [(ngModel)]='search' type="text" class="form-control" name="exampleInputEmail1"  placeholder="Nazwa dania">
+    </div>
 
+    <button type="submit" class="btn btn-default" (click)="send()" >Wyszukaj</button>
+  </form>
+
+</div>
