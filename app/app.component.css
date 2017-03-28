@@ -1,6 +1,5 @@
-  
   .menu{
-	  position:absolute;
+	  position:fixed;
 	  left:400px;
 	  top:30px;
       
@@ -14,7 +13,7 @@
 
   }
 .images img{
-    position: relative;
+    position: fixed;
     left:50px;
     top:-30px;
     height: 6cm;

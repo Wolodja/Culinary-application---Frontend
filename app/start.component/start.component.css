@@ -2,10 +2,12 @@
     margin-left:85px;
     color: white;
     font-size: 13pt;
+    margin-top:200px;
 }
 .cont button{
     margin-left:307px; 
 }
 .cont button:hover{
     background-color: white;
+    cursor: pointer;
 }

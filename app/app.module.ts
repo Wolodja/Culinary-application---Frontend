@@ -1,3 +1,5 @@
+import { DetailService } from './detail.component/detail.service';
+import { DetailComponent } from './detail.component/detail.component';
 import { DaniePipe } from './danie.component/danie.pipe';
 import { DanieService } from './danie.component/danie.service';
 import { DanieComponent } from './danie.component/danie.component';
@@ -28,12 +30,16 @@ import { FormsModule }   from '@angular/forms';
     {
       path: 'dashboard',
       component: StartComponent
+    },
+    {
+      path:'detail/:id',
+      component:DetailComponent
     }
 
   ])],
-  declarations: [AppComponent, StartComponent, DanieComponent,DaniePipe],
+  declarations: [AppComponent, StartComponent, DanieComponent,DaniePipe,DetailComponent],
   bootstrap: [AppComponent],
-  providers: [AppService, StartService,DanieService]
+  providers: [AppService, StartService,DanieService,DetailService]
 })
 export class AppModule {
 }
