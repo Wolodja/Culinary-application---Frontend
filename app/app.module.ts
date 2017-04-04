@@ -1,6 +1,5 @@
 import { DetailService } from './detail.component/detail.service';
 import { DetailComponent } from './detail.component/detail.component';
-import { DaniePipe } from './danie.component/danie.pipe';
 import { DanieService } from './danie.component/danie.service';
 import { DanieComponent } from './danie.component/danie.component';
 import { StartComponent } from './start.component/start.component';
@@ -17,7 +16,7 @@ import { FormsModule }   from '@angular/forms';
 
 @NgModule({
 
-  imports: [BrowserModule, HttpModule,FormsModule, RouterModule.forRoot([
+  imports: [BrowserModule, HttpModule, FormsModule, RouterModule.forRoot([
     {
       path: '',
       redirectTo: '/dashboard',
@@ -32,14 +31,14 @@ import { FormsModule }   from '@angular/forms';
       component: StartComponent
     },
     {
-      path:'detail/:id',
-      component:DetailComponent
+      path: 'detail/:id',
+      component: DetailComponent
     }
 
   ])],
-  declarations: [AppComponent, StartComponent, DanieComponent,DaniePipe,DetailComponent],
+  declarations: [AppComponent, StartComponent, DanieComponent, DetailComponent],
   bootstrap: [AppComponent],
-  providers: [AppService, StartService,DanieService,DetailService]
+  providers: [AppService, StartService, DanieService, DetailService]
 })
 export class AppModule {
 }

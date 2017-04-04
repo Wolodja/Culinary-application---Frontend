@@ -8,7 +8,7 @@
       <input [(ngModel)]='search' type="text" class="form-control" name="exampleInputEmail1"  placeholder="Nazwa dania">
     </div>
 
-    <button type="submit" class="btn btn-default" (click)="send()" >Wyszukaj</button>
+    <button type="submit" [disabled]="!isValidForm()" class="btn btn-default" (click)="send()" >Wyszukaj</button>
   </form>
 
 </div>

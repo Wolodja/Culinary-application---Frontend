@@ -1,5 +1,112 @@
-div{
-    margin-top: 200px;
+.photo{
+    position: absolute;
+    top:150px;
+    left:87px;
+    z-index: 1;
+    width: 250px;
+    height: 170px;
+    animation-name: divAppear;
+    animation-duration: 2s;
+}
+.photo img{
+    width: 100%;
+    height: auto;
+}
+
+ .cont{
+    position: absolute;
+    
+    top:150px;
+    left: 370px;
+    z-index: 1;
     color: white;
     font-size: 15pt;
+    animation-name: divAppear;
+    animation-duration: 2s;
+}
+
+
+.skladniki{
+    z-index: 1;
+    position: absolute;
+    left: 62px;
+    top: 358px;
+    color:white;
+    animation-name: divAppear;
+    animation-duration: 2s;
+}
+.skladniki li {
+    display: table;
+    table-layout: fixed;
+    width:15%;
+    font-size: 13pt;
+    
+}
+.skladniki li div{
+     display: table-cell;
+     
+}
+
+.skladnikName{
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    width:60%;
+}
+.skladnikIlosc{
+
+}
+.skladnikCena{
+    font-weight:900;
+    width:0.2%;
+}
+
+.przepis{
+    padding: 10px;
+    z-index: 1;
+    position: absolute;
+    left: 370px;
+    top:350px;
+    background:snow;
+    color:black;
+    animation-name: divAppear;
+    animation-duration: 2s;
+    margin-right: 50px;
+}
+.przepis p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+
+@keyframes divAppear {
+  0% {
+      opacity: 0;
+  }
+  50%{
+      opacity:0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+@keyframes dropHeader {
+  0% {
+      opacity: 0.7;
+    transform: translateY(100%);
+  }
+  100% {
+      opacity: 0.4;
+    transform: translateY(0);
+  }
+}
+
+header {  
+  /* This section calls the dropHeader animation we defined above */
+  z-index: -1;
+  animation: 1s ease-out 0s 1 dropHeader;
+  margin-top:130px;
+  background: #d2691e;
+  padding: 254px;
+  opacity: 0.4;
 }

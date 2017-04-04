@@ -1,10 +1,8 @@
-import { DaniePipe } from './danie.pipe';
 import { Router } from '@angular/router';
 import { DanieService } from './danie.service';
-import { data } from './../data';
 import { Danie } from './../danie';
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 
@@ -17,14 +15,12 @@ export class DanieComponent implements OnInit {
 
     danies: Danie[];
     name: String;
-    niema = "";
+    niema = '';
     private sub: any;
     selectedDanies: Danie;
 
 
-    constructor(private danieService: DanieService, private route: ActivatedRoute, private router:Router ) { }
-      
-
+    constructor(private danieService: DanieService, private route: ActivatedRoute, private router: Router) {}
     ngOnInit(): void {
         this.sub = this.route.params.subscribe(params => {
             this.name = params['name'];
@@ -36,13 +32,13 @@ export class DanieComponent implements OnInit {
             .subscribe(
             res => {
                 this.danies = res as Danie[];
-                if (this.danies.length == 0) {
-                    this.niema = "Nie znaleziono dań!";
+                if (this.danies.length === 0) {
+                    this.niema = 'Nie znaleziono dań!';
                 };
             },
             error => alert(error),
             function () {
-                console.log("Finished");
+                console.log('Finished');
             });
 
     }

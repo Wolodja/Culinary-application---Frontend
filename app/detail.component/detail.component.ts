@@ -1,8 +1,9 @@
+import { Skladnik } from './../skladnik';
 import { DetailService } from './detail.service';
 import { Danie } from './../danie';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 
@@ -14,15 +15,21 @@ import 'rxjs/add/operator/switchMap';
 })
 export class DetailComponent implements OnInit {
 
-    danie :Danie={
-        idDanie:'',
+    danie: Danie = {
+        nazwaTyp: '',
+        opisPrzepis: '',
+        czasPrzepis: 0,
         nazwaDanie: '',
+        idDanie: '',
         opisDanie: '',
-        idPrzepis : '',
-        idTyp : ''
+        zdjecieDanie: ''
     };
+    skladniki: Skladnik[];
+
     id: String;
     private sub: any;
+    niema = '';
+    suma: number;
 
 
     constructor(private route: ActivatedRoute, private router: Router, private detailService: DetailService) { }
@@ -43,7 +50,29 @@ export class DetailComponent implements OnInit {
             },
             error => alert(error),
             function () {
-                console.log("Finished");
+                console.log('Finished');
+            });
+
+
+        this.detailService.getComponents()
+            .subscribe(
+            res => {
+                this.skladniki = res as Skladnik[];
+                if (this.skladniki.length === 0) {
+                    this.suma = 0;
+                };
+                if (this.skladniki.length > 0) {
+                    this.suma=0;
+                    for (let i=0; i<this.skladniki.length;i++ ){
+                        this.suma+= this.skladniki[i].wartosc;
+                    }
+                     
+                };
+
+            },
+            error => alert(error),
+            function () {
+                console.log('Finished');
             });
 
     }
