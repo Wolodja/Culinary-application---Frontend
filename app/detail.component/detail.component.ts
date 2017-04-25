@@ -62,11 +62,10 @@ export class DetailComponent implements OnInit {
                     this.suma = 0;
                 };
                 if (this.skladniki.length > 0) {
-                    this.suma=0;
-                    for (let i=0; i<this.skladniki.length;i++ ){
-                        this.suma+= this.skladniki[i].wartosc;
+                    this.suma = 0;
+                    for (let i = 0; i < this.skladniki.length; i++) {
+                        this.suma += this.skladniki[i].wartosc;
                     }
-                     
                 };
 
             },

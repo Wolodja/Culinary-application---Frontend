@@ -15,12 +15,11 @@ export class DanieService implements OnInit {
         this.name = name;
     }
 
-
     constructor(private http: Http) { }
+
 
     getData() {
         return this.http.get('http://localhost:8080/danieName/' + this.name)
             .map(res => res.json());
     }
-
 }

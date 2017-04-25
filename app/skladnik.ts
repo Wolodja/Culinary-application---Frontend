@@ -1,4 +1,4 @@
-export class Skladnik{
+export class Skladnik {
     idProdukt: number;
     nazwaProdukt: String;
     ilosc: String;

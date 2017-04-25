@@ -22,8 +22,8 @@ export class DetailService implements OnInit {
             .map(res => res.json());
     }
 
-    getComponents(){
-        return this.http.get('http://localhost:8080/produktIdDania/'+this.id)
-        .map(res=>res.json());
+    getComponents() {
+        return this.http.get('http://localhost:8080/produktIdDania/' + this.id)
+            .map(res => res.json());
     }
 }

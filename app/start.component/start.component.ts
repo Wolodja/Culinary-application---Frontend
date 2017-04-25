@@ -17,20 +17,19 @@ export class StartComponent implements OnInit {
   isValid: boolean = true;
   ngOnInit(): void {
 
-    this.search='';
+    this.search = '';
   }
 
 
   send() {
-      this.router.navigate(['/danies', this.search]);
+    this.router.navigate(['/danies', this.search]);
   }
 
   isValidForm() {
     if (this.search === '') {
       this.isValid = false;
-    }
-    else{
-      this.isValid=true;
+    } else {
+      this.isValid = true;
     }
     return this.isValid;
   }
