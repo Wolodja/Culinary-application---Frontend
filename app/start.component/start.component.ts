@@ -25,6 +25,10 @@ export class StartComponent implements OnInit {
     this.router.navigate(['/danies', this.search]);
   }
 
+  send2() {
+    this.router.navigate(['/step1']);
+  }
+
   isValidForm() {
     if (this.search === '') {
       this.isValid = false;

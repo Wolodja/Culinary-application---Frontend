@@ -1,14 +1,18 @@
 <div class="cont">
-<!--  <button (click)="onGet()">Get Data</button>
-  <p>Output: {{getDataa}}</p>
--->
   <form>
     <div class="form-group col-4">
       <label for="exampleInputEmail1">Wyszukaj przepis! Wprowadź nazwę dania</label>
-      <input [(ngModel)]='search' type="text" class="form-control" name="exampleInputEmail1"  placeholder="Nazwa dania">
+      <input [(ngModel)]='search' type="text" class="form-control" name="exampleInputEmail1" placeholder="Nazwa dania">
     </div>
-
-    <button type="submit" [disabled]="!isValidForm()" class="btn btn-default" (click)="send()" >Wyszukaj</button>
+    <div class="but">
+      <button type="submit" [disabled]="!isValidForm()" class="btn btn-default" (click)="send()">Wyszukaj</button>
+    </div>
   </form>
-
+</div>
+<div class="cont2">
+  <label>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;lub spróbuj</label>
+  <br>
+  <br>
+  <br>
+  <button type="button" (click)="send2()" class="btn btn-info">Zawansowane wyszukiwanie</button>
 </div>
