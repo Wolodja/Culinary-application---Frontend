@@ -1,11 +1,21 @@
 export class Request {
-    typDania: String;
-    budzet: number;
-    skladniki: String[];
+    nazwaTyp: String;
+    cena: String;
+    produkty: String[];
 
-    constructor(t:String, b:number, s:String[]){
-        this.typDania=t;
-        this.budzet=b;
-        this.skladniki=s;
+    
+    constructor(){
+        this.nazwaTyp='';
+        this.cena='';
+        this.produkty=[];
+    }
+    setNazwaTyp(nt:String){
+        this.nazwaTyp=nt;
+    }
+    setCena(c:String){
+        this.cena=c;
+    }
+    setProdukty(pr:String[]){
+        this.produkty=pr;
     }
 }

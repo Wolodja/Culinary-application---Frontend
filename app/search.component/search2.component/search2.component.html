@@ -1,6 +1,29 @@
 <div class="step">
-<p>KROK 2</p>
-<h4>Wybierz składniki które masz</h4>
+    <p style=" font-size: 80pt;
+    color: #42f459">KROK 2</p>
+    <h4>Wybierz składniki które masz</h4>
 
-<button class="button" (click)="send()"><span>Dalej </span></button>
+    <select [(ngModel)]="selectedValue" class="form-control col-4">
+        <option value="">Wybierz rodzaj produktów</option>
+  <option *ngFor="let c of skladnikii" [ngValue]="c">{{c.nazwaRodzaj}}</option>
+</select>
+
+    <div *ngFor="let s of selectedValue.produktList">
+        <input type="checkbox" name="vehicle" value="Bike" (click)="addOrRemove(s)" hint="aaa">{{s}}
+    </div>
+    <button class="button" (click)="send()"><span>Dalej </span></button>
+</div>
+
+<div class="back" *ngIf="show">
+    <div class="content">
+        <h3>Podsumowanie:</h3>
+        <nav>
+            <ul class="skladniki" >
+                <li *ngFor="let skladnik of lista">{{skladnik}}</li>
+            </ul>
+        </nav>
+        <!--      <div class="skladniki" *ngFor="let skladnik of lista">
+            <p>- {{skladnik}}</p>
+        </div>-->
+    </div>
 </div>

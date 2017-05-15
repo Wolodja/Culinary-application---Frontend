@@ -1,3 +1,4 @@
+import { Respons } from './../../respons';
 import { Request } from './../../request';
 import { SearchService } from './../search.service';
 import { Component, OnInit } from '@angular/core';
@@ -6,25 +7,42 @@ import { Router } from '@angular/router';
 
 @Component({
 
-    selector: 'search3',
-    template: require('./search3.component.html!text'),
-    styles: [require('./search3.component.css!text')],
-    providers: [SearchService]
+  selector: 'search3',
+  template: require('./search3.component.html!text'),
+  styles: [require('./search3.component.css!text')],
 })
 export class Search3 implements OnInit {
 
-    search: String = '';
-    r : Request;
+  search: String = '';
+  request: Request;
+  odpowiedz: Respons[] = [];
+  cena: String;
 
-    constructor(private router: Router, private searchService: SearchService) { }
+  constructor(private router: Router, public searchService: SearchService) { }
 
-    ngOnInit(): void {
-
-    }
+  ngOnInit(): void {
+    this.request = this.searchService.request;
+    console.log(this.request);
+  }
 
   send() {
-    this.r = new Request('Salatka', 4, ['marchewka', 'cebula']);
-    this.searchService.postData(this.r);
-    
+    /*  this.r = new Request();
+      this.r.setNazwaTyp('Salatka');
+      this.r.setCena('10');
+      this.r.setProdukty(['Marchewka','Cebula','Ziemniaki']);*/
+    this.request.cena = this.cena;
+    console.log(this.request);
+    this.searchService.postData(this.request).subscribe(
+      res => {
+        this.odpowiedz = res as Respons[];
+        this.searchService.respons = this.odpowiedz;
+      },
+      error => alert(error),
+      function () {
+        console.log('Finished');
+      });
+    setTimeout(() => { this.router.navigate(['/result']); }, 100);
+
+
   }
 }

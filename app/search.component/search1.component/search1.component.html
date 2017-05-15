@@ -1,12 +1,10 @@
 <div class="step">
 <p>KROK 1</p>
 <h4>Wybierz typ dania</h4>
-<select class="form-control col-4">
-  <option>Pierwsze danie</option>
-  <option>Zupa</option>
-  <option>Desert</option>
-  <option>Salatka</option>
-  <option>Przekąski</option>
+<select class="form-control col-4" [(ngModel)]="nazwa" >
+  <option value="" >Wybierz z listy</option>
+  <option *ngFor="let c of types" [ngValue]="c" >{{c}}</option>
 </select>
+<p *ngIf='show' style="font-size: 15px; color: red">Nie wybrano typ dania!</p>
 <button class="button" (click)="send()"><span>Dalej </span></button>
 </div>

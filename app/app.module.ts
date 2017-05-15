@@ -1,3 +1,5 @@
+import { Detail2 } from './search.component/detail2.component/detail2.component';
+import { Danie2 } from './search.component/danie2.component/danie2.component';
 import { SearchService } from './search.component/search.service';
 import { Search3 } from './search.component/search3.component/search3.component';
 import { Search2 } from './search.component/search2.component/search2.component';
@@ -14,7 +16,7 @@ import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -49,12 +51,19 @@ import { FormsModule }   from '@angular/forms';
     {
       path: 'step3',
       component: Search3
+    },
+    {
+      path: 'result',
+      component: Danie2
+    },
+    {
+      path: 'detail',
+      component: Detail2
     }
-
   ])],
-  declarations: [AppComponent, StartComponent, DanieComponent, DetailComponent, Search1, Search2, Search3],
+  declarations: [AppComponent, StartComponent, DanieComponent, DetailComponent, Search1, Search2, Search3, Danie2, Detail2],
   bootstrap: [AppComponent],
-  providers: [AppService, StartService, DanieService, DetailService,SearchService]
+  providers: [AppService, StartService, DanieService, DetailService, SearchService]
 })
 export class AppModule {
 }

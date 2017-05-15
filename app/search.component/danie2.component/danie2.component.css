@@ -1,0 +1,26 @@
+.myTable{
+    margin-left:90px;
+    margin-right:700px; 
+}
+.myTable table{
+    background-color:rgba(249, 236, 122, 0.6);
+    opacity: 1;
+
+}
+.myTable table:hover{
+    background-color:#D7DA55;
+    cursor: pointer;
+}
+​.header
+{
+    height:50px;
+}
+.content
+{
+    position:absolute;
+    top: 130px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll;        
+}​

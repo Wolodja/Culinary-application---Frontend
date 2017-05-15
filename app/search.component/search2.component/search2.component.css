@@ -4,18 +4,20 @@
     position: relative;   
     animation-name: example;
     animation-duration: 2s;
+    color:white;
     
-}
-p {
-    font-size: 80pt;
-    color: #42f459
 }
 h4{
     color: white;
+    display: inline;
 }
 @keyframes example {
     0%   { margin-left: 500px; opacity: 0}
     100% {margin-left: 200px; opacity: 1}
+}
+@keyframes example2 {
+    0%   {  opacity: 0}
+    100% { opacity: 1}
 }
 
 .button {
@@ -57,6 +59,35 @@ h4{
   opacity: 1;
   right: 0;
 }
+p input{
+  color: white;
+}
+.skladniki{
+  font-size: 18pt;
+
+}
+.back{
+  position: fixed;
+  left: 800px;
+  top:150px;
+  width:300px;
+  height: 390px;
+background-color: rgba(165,42,42, 0.7);
+
+  border-radius: 0.5px;
+  animation-name: example2;
+    animation-duration: 3s;
+}
+
+.content{
+   left: 700px;
+  top:150px;
+  padding: 10px;
+  color: white;
+   opacity: 1;
+}
+nav ul{height:340px; width:290px;}
+nav ul{overflow:hidden; overflow-y:scroll;}
 
 
 

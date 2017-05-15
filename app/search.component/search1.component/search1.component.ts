@@ -1,25 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { SearchService } from './../search.service';
+import { Request } from './../../request';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 
 
 @Component({
 
-    selector: 'search1',
-    template: require('./search1.component.html!text'),
-    styles: [require('./search1.component.css!text')]
+  selector: 'search1',
+  template: require('./search1.component.html!text'),
+  styles: [require('./search1.component.css!text')]
 })
 export class Search1 implements OnInit {
 
-    search: String = '';
+  nazwa: String = '';
+  types: String[];
+  show: boolean = false;
+  request: Request;
 
-    constructor(private router: Router) { }
+  constructor(private router: Router, public searchService: SearchService) {
+    this.request = new Request();
+  }
 
-    ngOnInit(): void {
-
+  change() {
+    if (this.nazwa == '') {
+      this.show = true;
     }
+    else {
+      this.show = false;
+    }
+  }
+
+  ngOnInit(): void {
+    this.show = false;
+    this.types = ['Pierwsze danie', 'Zupa', 'Desert', 'Salatka', 'Przekąski'];
+  }
 
   send() {
-    this.router.navigate(['/step2']);
+
+
+    if (this.nazwa == '') {
+      this.show = true;
+    } else {
+      this.request.setNazwaTyp(this.nazwa);
+      this.router.navigate(['/step2']);
+    }
+  }
+
+  ngOnDestroy() {
+    this.request.nazwaTyp = this.nazwa;
+    this.searchService.request = this.request;
   }
 }

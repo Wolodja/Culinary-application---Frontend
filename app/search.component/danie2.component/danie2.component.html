@@ -1,0 +1,26 @@
+<div class="header"></div>
+<div class="content">​​​​​​​​​​​​​​​​​
+    <div class='myTable'>
+        <table class="table table-bordered" *ngFor="let danie of respons" on-mouseover="onSelect(danie)">
+            <tr>
+                <td>
+                    <div class="row" (click)="gotoDetail()">
+                        <div class="col-sm-3">
+                            <img src="./images/{{danie.zdjecieDanie}}" width="180" height="120">
+                        </div>
+                        <div class="col-md-8">
+                            <h3 style="color:white; margin-left: 70px">{{danie.nazwaDanie }}</h3>
+                            <h4 style=" margin-left: 70px">{{danie.opisDanie}} </h4>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col" style="color:white; font-size: 27pt; margin-top:70px">{{niema}}</div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>

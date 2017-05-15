@@ -1,0 +1,37 @@
+<header></header>
+<div class="photo">
+    <img src="./images/{{respons.zdjecieDanie}}" alt="{{respons.nazwaDanie}} zdjęcie">
+</div>
+
+<div class='cont'>
+    <h1>{{respons.nazwaDanie | uppercase}}</h1>
+    <h4>Czas prygotowania : {{respons.czasPrzepis}} min</h4>
+    <h4>Typ dania : {{respons.nazwaTyp}}</h4>
+    <!--<p>&nbsp;</p>-->
+
+
+</div>
+<div class='skladniki'>
+    <ul>
+        <h3>Skladniki</h3>
+        <li *ngFor="let skladnik of respons.isIn">
+            <div class='skladnikName'>{{skladnik.nazwaProdukt}}</div>
+            <div class='skladnikIlosc'> {{skladnik.ilosc}}</div>
+            <div class="skladnikCena">{{skladnik.cenaProdukt}}zl</div>
+            <input type="checkbox" checked>
+        </li>
+        <li *ngFor="let skladnik of respons.isNotIn">
+            <div class='skladnikName'>{{skladnik.nazwaProdukt}}</div>
+            <div class='skladnikIlosc'> {{skladnik.ilosc}}</div>
+            <div class="skladnikCena">{{skladnik.cenaProdukt}}zl</div>
+            <input type="checkbox" >
+        </li>
+        <li>_________________________________</li>
+    </ul>
+    <h4>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Cena &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {{suma}} zl
+    </h4>
+</div>
+<div class='przepis'>
+    <h4>Przepis :</h4>
+    <p>{{respons.opisPrzepis}}</p>
+</div>
