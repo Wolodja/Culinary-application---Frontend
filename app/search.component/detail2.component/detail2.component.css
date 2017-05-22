@@ -4,13 +4,13 @@
     left:87px;
     z-index: 1;
     width: 250px;
-    height: 170px;
+    height: 180px;
     animation-name: divAppear;
     animation-duration: 2s;
 }
 .photo img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
  .cont{
@@ -30,7 +30,7 @@
     z-index: 1;
     position: absolute;
     left: 62px;
-    top: 358px;
+    top: 369px;
     color:white;
     animation-name: divAppear;
     animation-duration: 2s;
@@ -50,7 +50,7 @@
 .skladnikName{
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
-    width:60%;
+    width:65%;
 }
 .skladnikIlosc{
 width:30%;
@@ -109,6 +109,6 @@ header {
   animation: 1s ease-out 0s 1 dropHeader;
   margin-top:130px;
   background: #d2691e;
-  padding: 254px;
+  padding: 349px;
   opacity: 0.4;
 }

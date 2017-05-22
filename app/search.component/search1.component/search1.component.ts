@@ -33,7 +33,7 @@ export class Search1 implements OnInit {
 
   ngOnInit(): void {
     this.show = false;
-    this.types = ['Pierwsze danie', 'Zupa', 'Desert', 'Salatka', 'Przekąski'];
+    this.types = ['Salatka', 'Makaron', 'Frittata', 'Mieso', 'Marvnata', 'Pasta', 'Steki', 'Pierogi','Burrito','Kurczak', 'Pizza'];
   }
 
   send() {

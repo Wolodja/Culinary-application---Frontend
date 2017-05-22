@@ -41,7 +41,7 @@ export class Search3 implements OnInit {
       function () {
         console.log('Finished');
       });
-    setTimeout(() => { this.router.navigate(['/result']); }, 100);
+    setTimeout(() => { this.router.navigate(['/result']); }, 500);
 
 
   }

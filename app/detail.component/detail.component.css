@@ -29,8 +29,8 @@
 .skladniki{
     z-index: 1;
     position: absolute;
-    left: 62px;
-    top: 358px;
+    left: 52px;
+    top: 325px;
     color:white;
     animation-name: divAppear;
     animation-duration: 2s;
@@ -50,7 +50,7 @@
 .skladnikName{
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
-    width:60%;
+    width:75%;
 }
 .skladnikIlosc{
 
@@ -107,6 +107,6 @@ header {
   animation: 1s ease-out 0s 1 dropHeader;
   margin-top:130px;
   background: #d2691e;
-  padding: 254px;
+  padding: 286px;
   opacity: 0.4;
 }
