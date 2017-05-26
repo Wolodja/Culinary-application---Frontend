@@ -4,13 +4,13 @@
     left:87px;
     z-index: 1;
     width: 250px;
-    height: 170px;
+    height: 180px;
     animation-name: divAppear;
     animation-duration: 2s;
 }
 .photo img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
  .cont{
@@ -29,8 +29,8 @@
 .skladniki{
     z-index: 1;
     position: absolute;
-    left: 52px;
-    top: 325px;
+    left: 62px;
+    top: 369px;
     color:white;
     animation-name: divAppear;
     animation-duration: 2s;
@@ -50,16 +50,18 @@
 .skladnikName{
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
-    width:75%;
+    width:65%;
 }
 .skladnikIlosc{
-
+width:30%;
 }
 .skladnikCena{
     font-weight:900;
-    width:0.2%;
+    width:0.3%;
 }
-
+input{
+    margin-left: 60px;
+}
 .przepis{
     padding: 10px;
     z-index: 1;
@@ -107,6 +109,6 @@ header {
   animation: 1s ease-out 0s 1 dropHeader;
   margin-top:130px;
   background: #d2691e;
-  padding: 286px;
+  padding: 349px;
   opacity: 0.4;
 }

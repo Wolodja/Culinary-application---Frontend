@@ -1,19 +1,22 @@
-export class Danie {
+export class Add {
     nazwaTyp: String;
     opisPrzepis: String;
     czasPrzepis: number;
     nazwaDanie: String;
-    idDanie: String;
     opisDanie: String;
     zdjecieDanie: String;
-
-    constructor(){
+    produkty:Produkt[];
+        constructor(){
         this.nazwaTyp='';
         this.opisPrzepis='';
-        this.czasPrzepis=10;
+        this.czasPrzepis=0;
         this.nazwaDanie='';
-        this.idDanie='';
         this.opisDanie='';
         this.zdjecieDanie='';
+        this.produkty=[];
     }
+}
+export class Produkt{
+    nazwaProdukt:String;
+    iloscProdukt:number;
 }
