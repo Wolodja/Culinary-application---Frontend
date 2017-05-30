@@ -1,15 +1,17 @@
+import { Observable } from 'rxjs/Observable';
 import { Add, Produkt } from './../add';
 import { Type } from './../type';
 import { Danie } from './../danie';
 import { AddService } from './add.service';
 import { Router } from '@angular/router';
 import { SkladnikiAll } from './../skladnikiAll';
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'add',
     template: require('./add.component.html!text'),
-    styles: [require('./add.component.css!text')]
+    styles: [require('./add.component.css!text')],
+    providers: [AddService]
 
 }) export class AddComponent {
 
@@ -21,6 +23,8 @@ import { Component } from '@angular/core';
     test: String[] = [];
     test2: String[] = [];
     name: String;
+    photo: boolean = false;
+    photo2: boolean = false;
     ilosc: boolean = false;
     error1: boolean = false;
     error2: boolean = false;
@@ -28,22 +32,81 @@ import { Component } from '@angular/core';
     success: boolean = false;
     amount: number;
     errorM: String;
+    fileName: String;
 
+
+
+
+    fileEvent2(fileInput: any) {
+        let file = fileInput.target.files[0];
+        this.fileName = file.name;
+        let src = fileInput.target.result;
+        document.getElementById("image").src = src;
+        this.photo = true;
+        //this.danie.zdjecieDanie =' '+ fileName+'';
+        console.log(this.fileName);
+    }
+
+
+    fileEvent(event: any) {
+        var reader = new FileReader();
+        var src;
+        let file = event.target.files[0];
+        this.fileName = file.name;
+        reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+            src = e.target.result;
+            document.getElementById("image").src = src;
+            // setSrc(src);
+
+        };
+
+        //console.log(this.errorM);
+        this.photo = true;
+        this.photo2 = true;
+
+        // read the image file as a data URL.
+        reader.readAsDataURL(event.target.files[0]);
+
+        /*        let fileList: FileList = event.target.files;
+              if (fileList.length > 0) {
+                  let file: File = fileList[0];
+                  this.danie.zdjecieDanie.append('uploadFile', file, file.name);
+                  console.log("dotarlem");
+                        let headers = new Headers();
+                          headers.append('Content-Type', 'multipart/form-data');
+                          headers.append('Accept', 'application/json');
+                          let options = new RequestOptions({ headers: headers });
+                          this.http.post(`${this.apiEndPoint}`, formData, options)
+                              .map(res => res.json())
+                              .catch(error => Observable.throw(error))
+                              .subscribe(
+                                  data => console.log('success'),
+                                  error => console.log(error)
+                              )
+                      }*/
+
+
+    }
+    setSrc() {
+
+        let aaa = document.getElementById("image").src;
+        this.danie.zdjecieDanie = aaa;
+    }
 
     set(value: String) {
         console.log(value);
-        // this.filteredItems = Object.assign([], this.test2).filter(
-        //       item => item.toLowerCase().indexOf(value.toLowerCase()) > -1
-        // );
         this.name = value;
         this.assignCopy();
         this.ilosc = true;
+
     }
 
     assignCopy() {
         this.filteredItems = Object.assign([], this.test);
     };
     filterItem(value: String) {
+        this.error3 = false;
         if (!value || value.length < 3) this.assignCopy();
         else { //when nothing has typed
             this.filteredItems = Object.assign([], this.test2).filter(
@@ -74,7 +137,7 @@ import { Component } from '@angular/core';
     }
 
 
-    constructor(private router: Router, public addService: AddService) { }
+    constructor(private router: Router, public addService: AddService, private element: ElementRef) { }
 
 
     ngOnInit(): void {
@@ -109,7 +172,10 @@ import { Component } from '@angular/core';
     }
 
     dodaj() {
-        console.log('jestem');
+
+        this.danie.zdjecieDanie = this.fileName;
+        console.log(this.danie.zdjecieDanie);
+
         if (!this.danie.nazwaDanie) {
             this.errorM = 'Nie wprowadzono nazwe dania!';
             this.error3 = true;
@@ -147,6 +213,8 @@ import { Component } from '@angular/core';
                     console.log('Finished');
                 });
         }
+
     }
+
 
 }

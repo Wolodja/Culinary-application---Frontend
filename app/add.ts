@@ -7,13 +7,13 @@ export class Add {
     zdjecieDanie: String;
     produkty:Produkt[];
         constructor(){
-        this.nazwaTyp='';
+    /*    this.nazwaTyp='';
         this.opisPrzepis='';
         this.czasPrzepis=0;
         this.nazwaDanie='';
-        this.opisDanie='';
-        this.zdjecieDanie='';
+      */  this.opisDanie='';
         this.produkty=[];
+        
     }
 }
 export class Produkt{

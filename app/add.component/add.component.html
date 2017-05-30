@@ -4,7 +4,7 @@
     <div class="row">
         <div class="form-group col-md-4">
             <label for="name">Nazwa dania</label>
-            <input type="text" [(ngModel)]='danie.nazwaDanie'  class="form-control" id="name" required>
+            <input type="text" [(ngModel)]='danie.nazwaDanie' class="form-control" id="name" required>
             <div class="form-group">
                 <label for="alterEgo">Krótki opis</label>
                 <input type="text" [(ngModel)]='danie.opisDanie' [ngModelOptions]="{standalone: true}" class="form-control " id="alterEgo"
@@ -17,23 +17,17 @@
                     required>
             </div>
 
+
             <div class="form-group">
-                <label for="power">Wybierz typ dania</label>
-                <select [(ngModel)]="danie.nazwaTyp"  class="form-control">
-                 <option *ngFor="let c of types" [ngValue]="c" >{{c.nazwaTyp}}</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <label for="alterEgo">Zdjęcie (podaj ścieżkę)</label>
-                <input type="text" [(ngModel)]='danie.zdjecieDanie' class="form-control " id="alterEgo" required>
+                <label for="alterEgo">Przepis</label>
+                <textarea class="form-control" [(ngModel)]='danie.opisPrzepis' rows="3"></textarea>
+
             </div>
         </div>
 
 
-        <div class='col-md-4'>
-            <label for="alterEgo">Przepis</label>
-            <textarea class="form-control" [(ngModel)]='danie.opisPrzepis' rows="3"></textarea>
 
+        <div class="form-group col-md-4">
             <div class="back">
                 <div class="content">
                     <h3>Skladniki dania:</h3>
@@ -44,24 +38,43 @@
                     </nav>
                 </div>
             </div>
-
-            <button type="button" class="btn btn-success col-md-12" (click)='dodaj()'>Dodaj danie</button>
-        </div>
-
-
-        <div class="form-group col-md-4">
-            <label><span>Dodaj sk</span>ladnik</label>
+            <label>Dodaj skladnik</label>
             <input #myInput placeholder="Nazwa skladnika" class="form-control" [(ngModel)]="name" (input)="filterItem(myInput.value)">
 
             <button style=" margin-right:2px; margin-top:2px" class='btn btn-default ' *ngFor="let item of filteredItems" (click)='set(item)'>{{item}}</button>
 
-            <label style="color: black" *ngIf='ilosc' for="alterEgo">Ilość (gramy)</label>
+            <label  *ngIf='ilosc' for="alterEgo">Ilość (gramy)</label>
             <input *ngIf='ilosc' type="number" class="form-control " id="alterEgo" [(ngModel)]='amount' required>
             <p style='color:red' *ngIf='error1'>Nie wprowadzono nazwe skladnika</p>
             <p style='color:red' *ngIf='error2'>Ilosc musi być większ od zera!</p>
-            <button style="margin-top: 2px;" *ngIf='ilosc' type="submit" class="btn btn-info col-md-12 " (click)='dodajSkladnik()'>Dodaj skladnik</button>
-             <p style='color:red; font-size: 17pt; margin-top:50px;' *ngIf='error3' >{{errorM}}</p>
-              <p style='color:green; font-size: 17pt; margin-top:50px;' *ngIf='success' >Danie dodano</p>
+            <button style="margin-top: 22px;" *ngIf='ilosc' type="submit" class="btn btn-info col-md-12 " (click)='dodajSkladnik()'>Dodaj skladnik</button>
+            <p style='color:white;background-color:brown; border-radius:9px; font-size: 17pt; margin-top:50px;' *ngIf='error3'> &nbsp; {{errorM}}</p>
+            <p style='color:green; font-size: 17pt; margin-top:50px;' *ngIf='success'>Danie dodano</p>
+            <br>
+
+
+        </div>
+
+
+
+        <div class='col-md-4'>
+            <div class="form-group">
+                <label style="color: black" for="power">Wybierz typ dania</label>
+                <select [(ngModel)]="danie.nazwaTyp" class="form-control">
+                 <option *ngFor="let c of types" [ngValue]="c.idTyp" >{{c.nazwaTyp}}</option>
+            </select>
+            </div>
+            <label style="color: black" for="alterEgo">Zdjęcie </label>
+            <!--  <input type="text" [(ngModel)]='danie.zdjecieDanie' class="form-control " id="alterEgo" required>
+            -->
+            <input type="file"  (change)="fileEvent($event)" />
+            <br>
+            <label *ngIf="photo" for="image"><span>Wybrane</span> zdjęcie</label><br>
+            <img *ngIf="photo" id="image" style="width: 180px; height:120px" />
+            <br><br>
+
+            <button type="button" class="btn btn-success col-md-12" (click)='dodaj()'>Dodaj danie</button>
+
         </div>
     </div>
 

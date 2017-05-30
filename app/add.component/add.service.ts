@@ -17,11 +17,14 @@ export class AddService implements OnInit {
     }
 
 
-    constructor(private http: Http) { }
+    constructor(private http: Http) {
+    }
+
     getTypes(): Observable<Type[]> {
         return this.http.get('http://localhost:8080/getTyp-all')
             .map(res => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+
     }
 
     getAllSkladniki(): Observable<SkladnikiAll[]> {
@@ -38,7 +41,7 @@ export class AddService implements OnInit {
         let options = new RequestOptions({ headers: headers }); // Create a request option
 
         return this.http.post('http://localhost:8080/add', body, options) // ...using post request
-            .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
+            .map((res: any) => res.json()) // ...and calling .json() on the response to return data
             .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }
 }

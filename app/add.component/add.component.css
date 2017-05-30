@@ -1,5 +1,5 @@
 .container{
-    margin-top: 150px;
+    margin-top: 190px;
     color: white;
 }
 .ng-valid[required], .ng-valid.required  {
@@ -12,13 +12,13 @@ span{
   color:black;
 }
 
-nav ul{height:210px; width:350px;}
+nav ul{height:113px; width:350px;}
 nav ul{overflow:hidden; overflow-y:scroll;}
 
 .back{
   margin-top:2px;
   margin-bottom: 2px;
-  height: 248px;
+  height: 151px;
 background-color: rgba(165,42,42, 0.7);
   border-radius: 0.5px;
   animation-name: example2;
