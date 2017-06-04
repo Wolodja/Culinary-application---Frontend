@@ -1,3 +1,6 @@
+import { LoginlService } from './login/login.service';
+import { RegisterComponent } from './login/register.component/register.component';
+import { LoginComponent } from './login/login.component/login.component';
 import { AddService } from './add.component/add.service';
 import { AddComponent } from './add.component/add.component';
 import { Detail2 } from './search.component/detail2.component/detail2.component';
@@ -13,12 +16,13 @@ import { DanieComponent } from './danie.component/danie.component';
 import { StartComponent } from './start.component/start.component';
 import { StartService } from './start.component/start.service';
 import { AppService } from './app.service';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -65,11 +69,19 @@ import { FormsModule } from '@angular/forms';
     {
       path: 'add',
       component: AddComponent
+    },
+    {
+      path: 'login',
+      component: LoginComponent
+    },
+    {
+      path: 'register',
+      component: RegisterComponent   
     }
   ])],
-  declarations: [AppComponent, StartComponent, DanieComponent, DetailComponent, Search1, Search2, Search3, Danie2, Detail2, AddComponent],
+  declarations: [AppComponent,LoginComponent, RegisterComponent, StartComponent, DanieComponent, DetailComponent, Search1, Search2, Search3, Danie2, Detail2, AddComponent],
   bootstrap: [AppComponent],
-  providers: [AppService, StartService, DanieService, DetailService, SearchService, AddService]
+  providers: [AppService,LoginlService, StartService, DanieService, DetailService, SearchService, AddService]
 })
 export class AppModule {
 }

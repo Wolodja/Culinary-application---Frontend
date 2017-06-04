@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="alterEgo">Przepis</label>
-                <textarea class="form-control" [(ngModel)]='danie.opisPrzepis' rows="3"></textarea>
+                <textarea class="form-control" [(ngModel)]='danie.opisPrzepis' rows="3" required></textarea>
 
             </div>
         </div>
@@ -49,7 +49,7 @@
             <p style='color:red' *ngIf='error2'>Ilosc musi być większ od zera!</p>
             <button style="margin-top: 22px;" *ngIf='ilosc' type="submit" class="btn btn-info col-md-12 " (click)='dodajSkladnik()'>Dodaj skladnik</button>
             <p style='color:white;background-color:brown; border-radius:9px; font-size: 17pt; margin-top:50px;' *ngIf='error3'> &nbsp; {{errorM}}</p>
-            <p style='color:green; font-size: 17pt; margin-top:50px;' *ngIf='success'>Danie dodano</p>
+            <p style='color:#68f442; font-size: 17pt; margin-top:50px;' *ngIf='success'>Danie dodano</p>
             <br>
 
 
@@ -60,7 +60,7 @@
         <div class='col-md-4'>
             <div class="form-group">
                 <label style="color: black" for="power">Wybierz typ dania</label>
-                <select [(ngModel)]="danie.nazwaTyp" class="form-control">
+                <select [(ngModel)]="danie.nazwaTyp" class="form-control" required>
                  <option *ngFor="let c of types" [ngValue]="c.idTyp" >{{c.nazwaTyp}}</option>
             </select>
             </div>

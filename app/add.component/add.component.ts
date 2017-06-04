@@ -33,6 +33,7 @@ import { Component, ElementRef } from '@angular/core';
     amount: number;
     errorM: String;
     fileName: String;
+    fileName2: String;
 
 
 
@@ -57,11 +58,12 @@ import { Component, ElementRef } from '@angular/core';
             // get loaded data and render thumbnail.
             src = e.target.result;
             document.getElementById("image").src = src;
+
             // setSrc(src);
 
         };
 
-        //console.log(this.errorM);
+        ;
         this.photo = true;
         this.photo2 = true;
 
@@ -172,6 +174,8 @@ import { Component, ElementRef } from '@angular/core';
     }
 
     dodaj() {
+        this.fileName2 = document.getElementById("image").src;
+        console.log(this.fileName2)
 
         this.danie.zdjecieDanie = this.fileName;
         console.log(this.danie.zdjecieDanie);
