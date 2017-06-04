@@ -19,12 +19,15 @@ export class RegisterComponent {
         private router: Router) { }
 
     register() {
-        this.loading = true;
+
         if (this.loginService.contains(this.model)) {
             this.er1 = true;
         }
-        else{
-        this.loginService.addUser(this.model);
+        else {
+            this.er1=false;
+            this.er2=true;
+            this.loading = true;
+            this.loginService.addUser(this.model);
         }
     }
 }

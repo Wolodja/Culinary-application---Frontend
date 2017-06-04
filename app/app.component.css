@@ -44,3 +44,6 @@ li a {
 li a:hover {
     color: #ce7644;
 }
+a:hover{
+    cursor: pointer
+}

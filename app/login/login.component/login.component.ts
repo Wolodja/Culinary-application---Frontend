@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    er1: boolean = false;
+    er2: boolean = false;
+    name: String = '';
 
     constructor(
         private route: ActivatedRoute,
@@ -23,22 +26,28 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
 
     }
-    fff(){}
+    fff() { }
     login() {
 
-        console.log(this.model.username, this.model.password);
-        this.loading = true;
-        let a =this.loginService.login(this.model.username, this.model.password);
-        console.log(a);
+        let a = this.loginService.login(this.model.username, this.model.password);
+        if (a == '-1') {
+            this.er1 = true;
+        } else {
 
-       /* this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });*/
+            this.loading = true;
+            this.er1 = false;
+            this.name = a;
+            this.er2 = true;
+            this.setCookie('name',a,5);
+            let timeoutId = setTimeout(() => {
+                this.router.navigate(['/add']);
+            }, 1000);
+        }
+    }
+    setCookie(cname: String, cvalue: String, exdays: number) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 }

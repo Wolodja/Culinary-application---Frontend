@@ -34,6 +34,7 @@ import { Component, ElementRef } from '@angular/core';
     errorM: String;
     fileName: String;
     fileName2: String;
+    name2: String;
 
 
 
@@ -143,82 +144,105 @@ import { Component, ElementRef } from '@angular/core';
 
 
     ngOnInit(): void {
+        console.log('Weszlem');
+        this.name2 = this.getCookie('name');
+        console.log(this.name2);
+        if (this.name2 == '') {
+            this.router.navigate(['/login']);
+        }
+    
+
 
 
         this.addService.getAllSkladniki()
-            .subscribe(
+    .subscribe(
+    res => {
+        this.skladnikii = res as SkladnikiAll[];
+        for (let i = 0; i < this.skladnikii.length; i++) {
+            for (let j = 0; j < this.skladnikii[i].produktList.length; j++) {
+                this.test2.push(this.skladnikii[i].produktList[j]);
+            }
+        }
+    },
+    error => alert(error),
+    function () {
+        console.log('Finished');
+    });
+
+this.addService.getTypes()
+    .subscribe(
+    res => {
+        this.types = res as Type[];
+    },
+    error => alert(error),
+    function () {
+        console.log('Finished');
+    });
+
+this.assignCopy();
+    }
+
+dodaj() {
+    this.fileName2 = document.getElementById("image").src;
+    console.log(this.fileName2)
+
+    this.danie.zdjecieDanie = this.fileName;
+    console.log(this.danie.zdjecieDanie);
+
+    if (!this.danie.nazwaDanie) {
+        this.errorM = 'Nie wprowadzono nazwe dania!';
+        this.error3 = true;
+    } else if (!this.danie.opisDanie) {
+        this.errorM = 'Nie wprowadzono opis dania!';
+        this.error3 = true;
+    } else if (this.danie.czasPrzepis <= 0) {
+        this.errorM = 'Czas przygotowania powinien być większy od zera!';
+        this.error3 = true;
+    } else if (!this.danie.zdjecieDanie) {
+        this.errorM = 'Nie wprowadzono zdjęcie dania!';
+        this.error3 = true;
+    } else if (!this.danie.nazwaTyp) {
+        this.errorM = 'Nie wybrano typ dania!';
+        this.error3 = true;
+    } else if (!this.danie.opisPrzepis) {
+        this.errorM = 'Nie wprowadzono przepis dania!';
+        this.error3 = true;
+    } else if (this.danie.produkty.length === 0) {
+        this.errorM = 'Nie wybrano skladników!';
+        this.error3 = true;
+
+    }
+
+    else {
+        this.error3 = false;
+        console.log(this.danie);
+        this.addService.addDanie(this.danie).subscribe(
             res => {
-                this.skladnikii = res as SkladnikiAll[];
-                for (let i = 0; i < this.skladnikii.length; i++) {
-                    for (let j = 0; j < this.skladnikii[i].produktList.length; j++) {
-                        this.test2.push(this.skladnikii[i].produktList[j]);
-                    }
-                }
+                this.success = true;
+                this.danie = new Add();
             },
             error => alert(error),
             function () {
                 console.log('Finished');
             });
-
-        this.addService.getTypes()
-            .subscribe(
-            res => {
-                this.types = res as Type[];
-            },
-            error => alert(error),
-            function () {
-                console.log('Finished');
-            });
-
-        this.assignCopy();
     }
 
-    dodaj() {
-        this.fileName2 = document.getElementById("image").src;
-        console.log(this.fileName2)
-
-        this.danie.zdjecieDanie = this.fileName;
-        console.log(this.danie.zdjecieDanie);
-
-        if (!this.danie.nazwaDanie) {
-            this.errorM = 'Nie wprowadzono nazwe dania!';
-            this.error3 = true;
-        } else if (!this.danie.opisDanie) {
-            this.errorM = 'Nie wprowadzono opis dania!';
-            this.error3 = true;
-        } else if (this.danie.czasPrzepis <= 0) {
-            this.errorM = 'Czas przygotowania powinien być większy od zera!';
-            this.error3 = true;
-        } else if (!this.danie.zdjecieDanie) {
-            this.errorM = 'Nie wprowadzono zdjęcie dania!';
-            this.error3 = true;
-        } else if (!this.danie.nazwaTyp) {
-            this.errorM = 'Nie wybrano typ dania!';
-            this.error3 = true;
-        } else if (!this.danie.opisPrzepis) {
-            this.errorM = 'Nie wprowadzono przepis dania!';
-            this.error3 = true;
-        } else if (this.danie.produkty.length === 0) {
-            this.errorM = 'Nie wybrano skladników!';
-            this.error3 = true;
-
+}
+getCookie(cname: String) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
         }
-
-        else {
-            this.error3 = false;
-            console.log(this.danie);
-            this.addService.addDanie(this.danie).subscribe(
-                res => {
-                    this.success = true;
-                    this.danie = new Add();
-                },
-                error => alert(error),
-                function () {
-                    console.log('Finished');
-                });
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
         }
-
     }
+    return "";
+}
 
 
 }

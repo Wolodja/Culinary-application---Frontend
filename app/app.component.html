@@ -1,13 +1,16 @@
-<div class='images '>
+<div on-mouseover="myFunction()">
+<div class='images ' >
     <img src="./images/new.png">
 </div>
     
-<div class='menu'>
+<div class='menu' on-mouseover="myFunction()">
     <ul>
     <li><a href="">START</a></li>
     <li><a href="/step1">WYSZUKIWANIE</a></li>
     <li><a href="/add">DODAJ DANIE</a></li>
-    <li><a href="/login">ZAŁOGUJ</a></li>
+    <li *ngIf='noCookie'><a href="/login">ZAŁOGUJ</a></li>
+    <li *ngIf='cookie' ><a (click)='delete()' >WYLOGUJ {{name}}</a></li>
     </ul>
 </div>
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>
+</div>
