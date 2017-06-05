@@ -8,24 +8,24 @@ import { Component, OnInit } from '@angular/core';
     template: require('./danie2.component.html!text'),
     styles: [require('./danie2.component.css!text')]
 })
-export class Danie2 {
+export class Danie2 implements OnInit {
 
     respons: Respons[];
     selectedRespons: Respons;
-    constructor(public searchService: SearchService, private router:Router) { };
+    constructor(public searchService: SearchService, private router: Router) { };
     ngOnInit() {
         this.respons = this.searchService.respons;
         console.log(this.respons);
     }
 
     gotoDetail() {
-       this.searchService.selectedRespons=this.selectedRespons;
-       console.log(this.selectedRespons);
-       this.router.navigate(['/detail']);
+        this.searchService.selectedRespons = this.selectedRespons;
+        console.log(this.selectedRespons);
+        this.router.navigate(['/detail']);
 
     }
 
     onSelect(resp: Respons) {
-        this.selectedRespons=resp;
+        this.selectedRespons = resp;
     }
 }

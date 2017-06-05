@@ -2,7 +2,7 @@ import { Add } from './../add';
 import { Type } from './../type';
 import { SkladnikiAll } from './../skladnikiAll';
 import { Injectable, OnInit } from '@angular/core';
-import { Http, RequestOptions, Headers, Response } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -42,6 +42,6 @@ export class AddService implements OnInit {
 
         return this.http.post('http://localhost:8080/add', body, options) // ...using post request
             .map((res: any) => res.json()) // ...and calling .json() on the response to return data
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error')); // ...errors if any
     }
 }

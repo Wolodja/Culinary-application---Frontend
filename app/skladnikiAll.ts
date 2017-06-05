@@ -1,4 +1,4 @@
-export class SkladnikiAll{
+export class SkladnikiAll {
     nazwaRodzaj: String;
-    produktList:String[];
+    produktList: String[];
 }

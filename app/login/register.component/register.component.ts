@@ -22,10 +22,9 @@ export class RegisterComponent {
 
         if (this.loginService.contains(this.model)) {
             this.er1 = true;
-        }
-        else {
-            this.er1=false;
-            this.er2=true;
+        } else {
+            this.er1 = false;
+            this.er2 = true;
             this.loading = true;
             this.loginService.addUser(this.model);
         }

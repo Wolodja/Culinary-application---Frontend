@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     login() {
 
         let a = this.loginService.login(this.model.username, this.model.password);
-        if (a == '-1') {
+        if (a === '-1') {
             this.er1 = true;
         } else {
 
@@ -38,16 +38,16 @@ export class LoginComponent implements OnInit {
             this.er1 = false;
             this.name = a;
             this.er2 = true;
-            this.setCookie('name',a,5);
-            let timeoutId = setTimeout(() => {
+            this.setCookie('name', a, 5);
+            setTimeout(() => {
                 this.router.navigate(['/add']);
             }, 1000);
         }
     }
     setCookie(cname: String, cvalue: String, exdays: number) {
-        var d = new Date();
+        let d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        let expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
     }
 }

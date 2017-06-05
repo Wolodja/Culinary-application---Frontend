@@ -3,19 +3,18 @@ export class Request {
     cena: String;
     produkty: String[];
 
-    
-    constructor(){
-        this.nazwaTyp='';
-        this.cena='';
-        this.produkty=[];
+    constructor() {
+        this.nazwaTyp = '';
+        this.cena = '';
+        this.produkty = [];
     }
-    setNazwaTyp(nt:String){
-        this.nazwaTyp=nt;
+    setNazwaTyp(nt: String) {
+        this.nazwaTyp = nt;
     }
-    setCena(c:String){
-        this.cena=c;
+    setCena(c: String) {
+        this.cena = c;
     }
-    setProdukty(pr:String[]){
-        this.produkty=pr;
+    setProdukty(pr: String[]) {
+        this.produkty = pr;
     }
 }

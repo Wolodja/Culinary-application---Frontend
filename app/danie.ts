@@ -7,13 +7,13 @@ export class Danie {
     opisDanie: String;
     zdjecieDanie: String;
 
-    constructor(){
-        this.nazwaTyp='';
-        this.opisPrzepis='';
-        this.czasPrzepis=10;
-        this.nazwaDanie='';
-        this.idDanie='';
-        this.opisDanie='';
-        this.zdjecieDanie='';
+    constructor() {
+        this.nazwaTyp = '';
+        this.opisPrzepis = '';
+        this.czasPrzepis = 10;
+        this.nazwaDanie = '';
+        this.idDanie = '';
+        this.opisDanie = '';
+        this.zdjecieDanie = '';
     }
 }

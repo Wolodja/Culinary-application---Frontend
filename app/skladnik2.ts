@@ -1,4 +1,4 @@
-export class Skladnik2{
+export class Skladnik2 {
     cenaProdukt: number;
     idProdukt: number;
     idRodzaj: number;

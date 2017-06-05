@@ -13,17 +13,13 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class SearchService implements OnInit {
 
-    public request:Request;
+    public request: Request;
     public respons: Respons[];
     public selectedRespons: Respons;
     ngOnInit(): void {
     }
 
-
     constructor(private http: Http) { }
-
-
-
 
     postData(body: Request): Observable<Respons[]> {
 
@@ -34,7 +30,7 @@ export class SearchService implements OnInit {
 
         return this.http.post('http://localhost:8080/send/test2', body, options) // ...using post request
             .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error')); // ...errors if any
     }
 
     getAllSkladniki(): Observable<SkladnikiAll[]> {

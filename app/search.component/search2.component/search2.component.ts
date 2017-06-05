@@ -1,8 +1,8 @@
 import { Request } from './../../request';
 import { SearchService } from './../search.service';
 import { SkladnikiAll } from './../../skladnikiAll';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -18,10 +18,8 @@ export class Search2 implements OnInit {
   selectedValue: String = '';
   lista: String[] = [];
   request: Request;
-  
 
   constructor(private router: Router, public searchService: SearchService) { }
-
 
   ngOnInit(): void {
     this.request = this.searchService.request;
@@ -43,7 +41,7 @@ export class Search2 implements OnInit {
 
     if (this.contains(nazwa)) {
       this.remove(nazwa);
-      if (this.lista.length == 0) {
+      if (this.lista.length === 0) {
         this.show = false;
       }
     } else {
@@ -53,9 +51,9 @@ export class Search2 implements OnInit {
   }
 
   contains(nazwa: String): boolean {
-    var i = this.lista.length;
+    let i = this.lista.length;
     while (i--) {
-      if (this.lista[i] == nazwa) {
+      if (this.lista[i] === nazwa) {
         return true;
       }
     }
@@ -63,7 +61,7 @@ export class Search2 implements OnInit {
   }
 
   remove(nazwa: String) {
-    var index = this.lista.indexOf(nazwa);
+    let index = this.lista.indexOf(nazwa);
     if (index > -1) {
       this.lista.splice(index, 1);
     }
@@ -73,9 +71,9 @@ export class Search2 implements OnInit {
     this.router.navigate(['/step3']);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     console.log(this.request);
-    this.request.produkty=this.lista;
-    this.searchService.request=this.request;
+    this.request.produkty = this.lista;
+    this.searchService.request = this.request;
   }
 }

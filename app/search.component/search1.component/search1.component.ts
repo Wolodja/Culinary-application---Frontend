@@ -1,6 +1,6 @@
 import { SearchService } from './../search.service';
 import { Request } from './../../request';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -23,23 +23,21 @@ export class Search1 implements OnInit {
   }
 
   change() {
-    if (this.nazwa == '') {
+    if (this.nazwa === '') {
       this.show = true;
-    }
-    else {
+    } else {
       this.show = false;
     }
   }
 
   ngOnInit(): void {
     this.show = false;
-    this.types = ['Salatka', 'Makaron', 'Frittata', 'Mieso', 'Marvnata', 'Pasta', 'Steki', 'Pierogi','Burrito','Kurczak', 'Pizza'];
+    this.types = ['Salatka', 'Makaron', 'Frittata', 'Mieso', 'Marvnata', 'Pasta', 'Steki', 'Pierogi', 'Burrito', 'Kurczak', 'Pizza'];
   }
 
   send() {
 
-
-    if (this.nazwa == '') {
+    if (this.nazwa === '') {
       this.show = true;
     } else {
       this.request.setNazwaTyp(this.nazwa);

@@ -1,5 +1,5 @@
 import { Skladnik2 } from './skladnik2';
-export class Respons{
+export class Respons {
     idDanie: number;
     isIn: Skladnik2[];
     isNotIn: Skladnik2[];

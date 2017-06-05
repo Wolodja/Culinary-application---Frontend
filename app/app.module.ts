@@ -16,8 +16,8 @@ import { DanieComponent } from './danie.component/danie.component';
 import { StartComponent } from './start.component/start.component';
 import { StartService } from './start.component/start.service';
 import { AppService } from './app.service';
-import { HttpModule, BaseRequestOptions } from '@angular/http';
-import { NgModule, Component } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -76,12 +76,13 @@ import { FormsModule } from '@angular/forms';
     },
     {
       path: 'register',
-      component: RegisterComponent   
+      component: RegisterComponent
     }
   ])],
-  declarations: [AppComponent,LoginComponent, RegisterComponent, StartComponent, DanieComponent, DetailComponent, Search1, Search2, Search3, Danie2, Detail2, AddComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, StartComponent,
+    DanieComponent, DetailComponent, Search1, Search2, Search3, Danie2, Detail2, AddComponent],
   bootstrap: [AppComponent],
-  providers: [AppService,LoginlService, StartService, DanieService, DetailService, SearchService, AddService]
+  providers: [AppService, LoginlService, StartService, DanieService, DetailService, SearchService, AddService]
 })
 export class AppModule {
 }

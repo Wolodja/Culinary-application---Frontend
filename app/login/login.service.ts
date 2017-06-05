@@ -8,7 +8,7 @@ import { Injectable, OnInit } from '@angular/core';
 @Injectable()
 export class LoginlService implements OnInit {
 
-    firstUser: User = { firstName: 'Dima', lastName: 'Martyniuk', username: 'superlogin', password: 'qwerty' }
+    firstUser: User = { firstName: 'Dima', lastName: 'Martyniuk', username: 'superlogin', password: 'qwerty' };
     logins: User[] = [];
 
 
@@ -22,7 +22,7 @@ export class LoginlService implements OnInit {
 
         this.logins.push(this.firstUser);
         for (let i = 0; i < this.logins.length; i++) {
-            if (this.logins[i].username == l && this.logins[i].password == p) {
+            if (this.logins[i].username === l && this.logins[i].password === p) {
                 console.log('co');
                 return this.logins[i].lastName;
             }
@@ -32,7 +32,7 @@ export class LoginlService implements OnInit {
     addUser(u: User) {
         this.logins.push(u);
 
-        let timeoutId = setTimeout(() => {
+        setTimeout(() => {
             this.router.navigate(['/login']);
         }, 1000);
 
@@ -40,11 +40,12 @@ export class LoginlService implements OnInit {
     contains(u: User): boolean {
         console.log(this.logins);
         for (let i = 0; i < this.logins.length; i++) {
-            if (this.logins[i].username==u.username)
+            if (this.logins[i].username === u.username) {
                 return true;
+            }
         }
-            return false;
-        
+        return false;
+
     }
 
     constructor(private router: Router) { }
